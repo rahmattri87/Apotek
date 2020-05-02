@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="lap_retur"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="612"
+		 pageHeight="792"
+		 columnWidth="552"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="total" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="gambar" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="status" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="user" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="periode" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="awal" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="akhir" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[SELECT
+     retur.`tglRetur` AS penjualan_tglJual,
+     retur.`notaRetur` AS penjualan_notaJual,
+     retur.`idUser` AS penjualan_idUser,
+     retur.`grandRetur` AS penjualan_grandJual
+FROM
+     `retur` retur
+WHERE
+     retur.`notaRetur` BETWEEN $P{awal} AND $P{akhir}
+ORDER BY
+     retur.`notaRetur` ASC]]></queryString>
+
+	<field name="penjualan_tglJual" class="java.sql.Timestamp"/>
+	<field name="penjualan_notaJual" class="java.lang.String"/>
+	<field name="penjualan_idUser" class="java.lang.String"/>
+	<field name="penjualan_grandJual" class="java.lang.Integer"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="104"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="50"
+						y="8"
+						width="198"
+						height="28"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" pdfFontName="Helvetica-Bold" size="22" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[APOTIK DEPOK]]></text>
+				</staticText>
+				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="-1"
+						width="47"
+						height="47"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA[$P{gambar}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="47"
+						y="31"
+						width="171"
+						height="29"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+				<text><![CDATA[JL. Kartini No. 21 A Telp. 7520419 DEPOK]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="-1"
+						y="66"
+						width="553"
+						height="24"
+						key="textField-1"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="20" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["LAPORAN TRANSAKSI RETUR " + $P{status}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="89"
+						width="552"
+						height="15"
+						key="textField-6"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Periode : " + $P{periode}]]></textFieldExpression>
+				</textField>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="30"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="5"
+						width="552"
+						height="1"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="29"
+						width="552"
+						height="1"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="27"
+						width="552"
+						height="1"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="121"
+						y="10"
+						width="83"
+						height="16"
+						key="staticText-7"/>
+					<box leftPadding="2" rightPadding="2">					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[No. Nota]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="8"
+						y="10"
+						width="71"
+						height="15"
+						forecolor="#000000"
+						key="element-2"/>
+					<box leftPadding="2" rightPadding="2">					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Tanggal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="395"
+						y="10"
+						width="96"
+						height="16"
+						forecolor="#000000"
+						key="element-3"/>
+					<box leftPadding="2" rightPadding="2">					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="246"
+						y="10"
+						width="36"
+						height="16"
+						forecolor="#000000"
+						key="element-4"/>
+					<box leftPadding="2" rightPadding="2">					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Kasir :]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="5"
+						width="0"
+						height="24"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="116"
+						y="5"
+						width="0"
+						height="24"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="208"
+						y="5"
+						width="0"
+						height="24"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="320"
+						y="5"
+						width="0"
+						height="24"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="551"
+						y="6"
+						width="0"
+						height="24"
+						key="line-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="23"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="3"
+						y="2"
+						width="108"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{penjualan_tglJual}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="121"
+						y="2"
+						width="83"
+						height="17"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{penjualan_notaJual}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="212"
+						y="2"
+						width="102"
+						height="17"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{penjualan_idUser}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="325"
+						y="2"
+						width="223"
+						height="17"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp." + $F{penjualan_grandJual}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="0"
+						width="0"
+						height="23"
+						key="line-9"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="116"
+						y="-1"
+						width="0"
+						height="23"
+						key="line-10"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="208"
+						y="0"
+						width="0"
+						height="23"
+						key="line-11"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="320"
+						y="0"
+						width="0"
+						height="23"
+						key="line-12"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="551"
+						y="0"
+						width="0"
+						height="23"
+						key="line-13"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="22"
+						width="552"
+						height="1"
+						key="line-14"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="22"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="339"
+						y="3"
+						width="170"
+						height="19"
+						key="textField-2"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Hal. " + $V{PAGE_NUMBER} + " dari "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="513"
+						y="3"
+						width="36"
+						height="19"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-3"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+						<font fontName="Times New Roman" pdfFontName="Helvetica" size="12" isBold="false" isItalic="false" isUnderline="false" isPdfEmbedded ="false" pdfEncoding ="CP1252" isStrikeThrough="false" />
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="90"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="330"
+						y="74"
+						width="219"
+						height="15"
+						key="staticText-3"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[( Dra. F. Sekarningsih, Apt )]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="330"
+						y="31"
+						width="219"
+						height="15"
+						key="staticText-4"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Apoteker]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="1"
+						y="31"
+						width="79"
+						height="15"
+						key="staticText-5"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica" size="11" isBold="false" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Dicetak Oleh   :]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="80"
+						y="31"
+						width="100"
+						height="15"
+						key="textField-4"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{user}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy HH:mm:ss" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="80"
+						y="51"
+						width="100"
+						height="15"
+						key="textField-5"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="1"
+						y="51"
+						width="79"
+						height="15"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica" size="11" isBold="false" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Tanggal Cetak :]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="208"
+						y="-1"
+						width="0"
+						height="23"
+						key="line-15"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="320"
+						y="-1"
+						width="0"
+						height="23"
+						key="line-16"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="551"
+						y="-1"
+						width="0"
+						height="23"
+						key="line-17"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="212"
+						y="3"
+						width="96"
+						height="16"
+						forecolor="#000000"
+						key="element-5"/>
+					<box leftPadding="2" rightPadding="2">					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Grand Total]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="208"
+						y="22"
+						width="344"
+						height="1"
+						key="line-19"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="324"
+						y="2"
+						width="222"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp." + $P{total}]]></textFieldExpression>
+				</textField>
+			</band>
+		</summary>
+</jasperReport>

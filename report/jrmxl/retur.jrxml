@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="retur"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="396"
+		 pageHeight="612"
+		 columnWidth="380"
+		 columnSpacing="0"
+		 leftMargin="8"
+		 rightMargin="8"
+		 topMargin="8"
+		 bottomMargin="8"
+		 whenNoDataType="NoPages"
+		 isFloatColumnFooter="true"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"
+		 isIgnorePagination="true">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="gambar" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="noRetur" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="noNota" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="tglNota" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="tglRetur" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="total" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="kasir" isForPrompting="false" class="java.lang.String"/>
+
+	<field name="COLUMN_1" class="java.lang.String"/>
+	<field name="COLUMN_2" class="java.lang.String"/>
+	<field name="COLUMN_3" class="java.lang.String"/>
+	<field name="COLUMN_4" class="java.lang.String"/>
+	<field name="COLUMN_5" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="86"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="2"
+						width="166"
+						height="21"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+				<text><![CDATA[APOTIK DEPOK]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="19"
+						width="166"
+						height="28"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font/>
+					</textElement>
+				<text><![CDATA[JL. Kartini No. 21 A Telp. 7520419 DEPOK]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="51"
+						width="65"
+						height="14"
+						key="staticText-3"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[RETUR No :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="211"
+						y="37"
+						width="52"
+						height="14"
+						key="staticText-4"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[NOTA No]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="211"
+						y="51"
+						width="52"
+						height="14"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Tgl RETUR]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="67"
+						width="380"
+						height="1"
+						forecolor="#000000"
+						backcolor="#000000"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="0.4" lineStyle="Solid"/>
+</graphicElement>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="85"
+						width="380"
+						height="0"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="69"
+						width="58"
+						height="14"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Kode]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="64"
+						y="69"
+						width="131"
+						height="14"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Nama Obat]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="316"
+						y="69"
+						width="62"
+						height="14"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Sub Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="258"
+						y="69"
+						width="54"
+						height="14"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Jumlah]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="199"
+						y="69"
+						width="54"
+						height="14"
+						key="staticText-12"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Harga]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="263"
+						y="37"
+						width="5"
+						height="14"
+						key="staticText-16"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font/>
+					</textElement>
+				<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="263"
+						y="51"
+						width="5"
+						height="14"
+						key="staticText-18"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font/>
+					</textElement>
+				<text><![CDATA[:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="65"
+						y="51"
+						width="101"
+						height="16"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{noRetur}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="268"
+						y="37"
+						width="108"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{noNota}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="268"
+						y="51"
+						width="108"
+						height="16"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{tglRetur}]]></textFieldExpression>
+				</textField>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="15"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="316"
+						y="1"
+						width="62"
+						height="14"
+						key="textField-1"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp." + $F{COLUMN_5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="258"
+						y="1"
+						width="54"
+						height="14"
+						key="textField-2"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{COLUMN_4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="199"
+						y="1"
+						width="54"
+						height="14"
+						key="textField-3"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp." + $F{COLUMN_3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="64"
+						y="1"
+						width="132"
+						height="14"
+						key="textField-4"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{COLUMN_2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="1"
+						width="58"
+						height="14"
+						key="textField-5"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{COLUMN_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="35"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="1"
+						width="380"
+						height="0"
+						key="line-13"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="234"
+						y="1"
+						width="54"
+						height="14"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Total : ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="1"
+						y="2"
+						width="31"
+						height="14"
+						key="staticText-14"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[Kasir :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="21"
+						width="380"
+						height="14"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Terima Kasih Atas Kunjungan Anda]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="288"
+						y="1"
+						width="92"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp." + $P{total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="32"
+						y="2"
+						width="80"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{kasir}]]></textFieldExpression>
+				</textField>
+			</band>
+		</summary>
+</jasperReport>

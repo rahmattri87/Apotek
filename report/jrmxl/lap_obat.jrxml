@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="lap_obat"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="792"
+		 pageHeight="612"
+		 columnWidth="770"
+		 columnSpacing="0"
+		 leftMargin="11"
+		 rightMargin="11"
+		 topMargin="19"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isFloatColumnFooter="true"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="gambar" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="user" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[SELECT
+     obat.`kdobat` AS obat_kdobat,
+     obat.`nmobat` AS obat_nmobat,
+     obat.`jenis` AS obat_jenis,
+     obat.`satuan` AS obat_satuan,
+     obat.`ukuran` AS obat_ukuran,
+     obat.`net` AS obat_net,
+     obat.`stok` AS obat_stok,
+     obat.`kdsup` AS obat_kdsup,
+     obat.`hrgBeliObat` AS obat_hrgBeliObat,
+     obat.`hrgJualObat` AS obat_hrgJualObat
+FROM
+     `obat` obat
+ORDER BY
+     obat.`kdobat` ASC,
+     obat.`jenis` ASC]]></queryString>
+
+	<field name="obat_kdobat" class="java.lang.String"/>
+	<field name="obat_nmobat" class="java.lang.String"/>
+	<field name="obat_jenis" class="java.lang.String"/>
+	<field name="obat_satuan" class="java.lang.String"/>
+	<field name="obat_ukuran" class="java.lang.String"/>
+	<field name="obat_net" class="java.lang.String"/>
+	<field name="obat_stok" class="java.lang.Integer"/>
+	<field name="obat_kdsup" class="java.lang.String"/>
+	<field name="obat_hrgBeliObat" class="java.lang.Integer"/>
+	<field name="obat_hrgJualObat" class="java.lang.Integer"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="103"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="52"
+						y="7"
+						width="271"
+						height="43"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" pdfFontName="Helvetica-Bold" size="24" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[APOTIK DEPOK]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="257"
+						y="79"
+						width="266"
+						height="24"
+						key="staticText-4"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="20" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[LAPORAN DATA OBAT]]></text>
+				</staticText>
+				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="3"
+						width="47"
+						height="47"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA[$P{gambar}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="48"
+						y="38"
+						width="198"
+						height="40"
+						key="staticText-21"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+				<text><![CDATA[JL. Kartini No. 21 A Telp. 7520419 DEPOK]]></text>
+				</staticText>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="28"  isSplitAllowed="false" >
+				<rectangle>
+					<reportElement
+						x="0"
+						y="4"
+						width="768"
+						height="24"
+						forecolor="#FFFFFF"
+						backcolor="#999999"
+						key="rectangle-1"/>
+					<graphicElement stretchType="NoStretch" fill="Solid" />
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="4"
+						y="9"
+						width="63"
+						height="15"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Kode]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="73"
+						y="9"
+						width="191"
+						height="15"
+						key="staticText-8"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Nama Obat]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="269"
+						y="9"
+						width="67"
+						height="15"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Jenis]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="340"
+						y="9"
+						width="44"
+						height="15"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Ukuran]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="389"
+						y="9"
+						width="56"
+						height="15"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Satuan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="449"
+						y="9"
+						width="74"
+						height="15"
+						key="staticText-12"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Harga Beli]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="528"
+						y="9"
+						width="31"
+						height="15"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Net]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="564"
+						y="9"
+						width="72"
+						height="15"
+						key="staticText-14"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Harga Jual]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="639"
+						y="9"
+						width="45"
+						height="15"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Stok]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="688"
+						y="9"
+						width="80"
+						height="15"
+						key="staticText-16"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Kode Sup.]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="70"
+						y="4"
+						width="0"
+						height="23"
+						key="line-14"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="266"
+						y="4"
+						width="0"
+						height="24"
+						key="line-15"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="337"
+						y="4"
+						width="0"
+						height="24"
+						key="line-16"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="386"
+						y="4"
+						width="0"
+						height="24"
+						key="line-17"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="447"
+						y="4"
+						width="0"
+						height="24"
+						key="line-18"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="525"
+						y="4"
+						width="0"
+						height="23"
+						key="line-19"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="562"
+						y="4"
+						width="0"
+						height="23"
+						key="line-20"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="637"
+						y="4"
+						width="0"
+						height="23"
+						key="line-21"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="685"
+						y="4"
+						width="0"
+						height="23"
+						key="line-22"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="27"
+						width="769"
+						height="0"
+						key="line-23"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="4"
+						width="769"
+						height="0"
+						key="line-24"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="25"
+						width="769"
+						height="0"
+						key="line-25"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="4"
+						width="0"
+						height="24"
+						key="line-26"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="768"
+						y="4"
+						width="0"
+						height="24"
+						key="line-27"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="20"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="3"
+						width="63"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_kdobat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="79"
+						y="3"
+						width="185"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_nmobat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="268"
+						y="3"
+						width="67"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_jenis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="388"
+						y="3"
+						width="55"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_satuan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="340"
+						y="3"
+						width="44"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_ukuran}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="455"
+						y="3"
+						width="67"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp. " + $F{obat_hrgBeliObat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="527"
+						y="3"
+						width="31"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_net}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="569"
+						y="3"
+						width="67"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Rp. " + $F{obat_hrgJualObat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="638"
+						y="3"
+						width="45"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{obat_stok}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="687"
+						y="3"
+						width="80"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obat_kdsup}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="0"
+						width="0"
+						height="20"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="70"
+						y="-1"
+						width="0"
+						height="21"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="266"
+						y="0"
+						width="0"
+						height="20"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="337"
+						y="0"
+						width="0"
+						height="20"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="386"
+						y="0"
+						width="0"
+						height="20"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="447"
+						y="0"
+						width="0"
+						height="20"
+						key="line-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="525"
+						y="0"
+						width="0"
+						height="20"
+						key="line-9"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="562"
+						y="-1"
+						width="0"
+						height="20"
+						key="line-10"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="637"
+						y="-1"
+						width="0"
+						height="20"
+						key="line-11"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="685"
+						y="0"
+						width="0"
+						height="20"
+						key="line-12"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="768"
+						y="0"
+						width="0"
+						height="20"
+						key="line-13"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="19"
+						width="769"
+						height="0"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="19"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="517"
+						y="0"
+						width="176"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Hal. " + $V{PAGE_NUMBER} + " Dari "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="693"
+						y="0"
+						width="77"
+						height="18"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="78"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="542"
+						y="7"
+						width="226"
+						height="15"
+						key="staticText-22"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Apoteker]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="542"
+						y="63"
+						width="226"
+						height="15"
+						key="staticText-23"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="11" isBold="true" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[( Dra. F. Sekarningsih, Apt )]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="79"
+						y="44"
+						width="100"
+						height="15"
+						key="textField-7"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="0"
+						y="24"
+						width="79"
+						height="15"
+						key="staticText-24"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica" size="11" isBold="false" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Dicetak Oleh   :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="44"
+						width="79"
+						height="15"
+						key="staticText-25"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica" size="11" isBold="false" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Tanggal Cetak :]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="79"
+						y="24"
+						width="100"
+						height="15"
+						key="textField-8"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{user}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="0"
+						y="7"
+						width="79"
+						height="15"
+						key="staticText-26"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Times New Roman" pdfFontName="Helvetica" size="11" isBold="false" isUnderline="false"/>
+					</textElement>
+				<text><![CDATA[Jumlah Data    :]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="78"
+						y="7"
+						width="100"
+						height="14"
+						key="textField-9"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</summary>
+</jasperReport>
